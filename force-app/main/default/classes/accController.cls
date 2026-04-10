@@ -1,7 +1,7 @@
 public with sharing class accController {
     @AuraEnabled(cacheable=false)
     public static List<Account> getAccounts() {
-        return [SELECT Id, Name Phone FROM Account ];
+        return [SELECT Id, Name, Site Phone FROM Account ];
     }
 
     @AuraEnabled
