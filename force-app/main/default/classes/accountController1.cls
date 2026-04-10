@@ -19,6 +19,7 @@ public with sharing class accountController1 {
 
     //test
     //test
+    //test
 
     @AuraEnabled(cacheable=true)
     public static List<RecordType> getRecordTypes() {
