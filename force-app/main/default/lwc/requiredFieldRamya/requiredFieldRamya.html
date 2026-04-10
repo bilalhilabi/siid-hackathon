@@ -1,0 +1,56 @@
+<template>
+
+    <lightning-card title="User Form">
+        <p>{proofname}</p>
+       
+        <template for:each={mydetail} for:item="my">
+            <p key={my.id}>{my.name}</p>
+            <p key={my.id}>{my.address.street}</p>
+             <!-- <p key={my.id}>{skj}</p> -->
+            
+
+            <!-- <template for:each={my.skill} for:item="add">
+            <p key={add.zip}>{add.street}</p>
+        </template> -->
+             
+        </template>
+         <!-- <p>{mydetail.name}</p>  -->
+        <lightning-input 
+            label="Username" 
+            value={username} 
+            onchange={handleChange}
+            required>
+        </lightning-input>
+
+        <lightning-button 
+            label="Submit" 
+            onclick={handleSubmit} 
+            class="slds-m-top_medium">
+        </lightning-button>
+    </lightning-card>
+
+    <c-child-track 
+        company-name={companyName}>
+    </c-child-track>
+</template>
+
+
+<!-- <template>
+    <lightning-card>
+         <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" data-name="firstname" name="firstname"  required label="Enter first" value={firstInput} onchange={handleInput}></lightning-input>
+        </div>
+
+         <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" data-name="lastname" name="lastname" required label="Enter last" value={secondInput} onchange={handleInput}></lightning-input>
+        </div>
+
+         <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" data-name="middlename" name="middlename" required label="Enter middle" value={thirdInput} onchange={handleInput}></lightning-input>
+        </div>
+
+ <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+
+    </lightning-card>
+</template> -->

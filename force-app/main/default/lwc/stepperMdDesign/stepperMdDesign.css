@@ -1,0 +1,41 @@
+.status-card {
+    padding: 1rem;
+    width: 25%;
+}
+
+.card {
+    background: #f4f6f9;
+    color:rgb(50, 50, 204);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --slds-c-icon-color-foreground-default: rgb(50, 50, 204);
+}
+
+/* .card.suggested {
+    background: #2979ff;
+    color: white;
+} */
+
+.status-icon {
+    margin-bottom: 0.5rem;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.count {
+    font-size: 1.2rem;
+}
+
+.slds-box{
+     border: none;
+}
+
+.card:hover {
+    background: rgb(50, 50, 204);
+    color: white;
+}

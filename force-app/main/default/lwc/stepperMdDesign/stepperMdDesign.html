@@ -1,0 +1,33 @@
+<template>
+    <lightning-card>
+        <p slot="title" class="slds-text-heading_large">Welcome back, John</p>
+        <p class="slds-p-left_medium">
+            Your application journey is progressing well. Here's a summary of your current status.
+        </p>
+        <div slot="actions">
+            <lightning-button variant="brand" label="Raise a Query" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </div>
+
+        <!-- Stepper -->
+        <div class="stepper-container slds-m-around_medium">
+            <template for:each={computedStatuses} for:item="step">
+                <div key={step.label} class="step-item">
+                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_center" onclick={handleStepClick} data-label={step.label} >
+                        <lightning-icon icon-name={step.icon} size="x-small" class="step-icon "></lightning-icon>
+                        <span class="step-label">{step.label}</span>
+                    </div>
+                    <template if:false={step.isLast}>
+                        <div class="step-line"></div>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+        <!-- Selected Step Info -->
+        <template lwc:if={selectedStatus}>
+            <p class="slds-p-left_medium slds-text-body_regular">
+                Selected step is: <strong>{selectedStatus}</strong>
+            </p>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Login">
+        <div class="slds-p-around_medium">
+            <lightning-input name="username" label="Username" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="password" name="password" label="Password" onchange={handleInputChange}></lightning-input>
+            <lightning-button label="Login" onclick={handleLogin} variant="brand"></lightning-button>
+
+            <template if:true={errorMessage}>
+                <p style="color:red;">{errorMessage}</p>
+            </template>
+        </div>
+    </lightning-card>
+
+    <template if:true={authData}>
+        <c-child-integration 
+            access-token={authData.accessToken} 
+            refresh-token={authData.refreshToken}>
+        </c-child-integration>
+    </template>
+</template>

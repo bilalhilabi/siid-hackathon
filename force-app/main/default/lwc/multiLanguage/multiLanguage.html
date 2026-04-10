@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Multi Language" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+           
+                <template if:true={showPopup}>
+    <c-child-language-selector
+        onlanguageselect={handleLanguageSelect}>
+    </c-child-language-selector>
+</template>
+
+<template if:false={showPopup}>
+    <p>
+                {label.welcomeMsg}
+            </p>
+
+            <lightning-datatable
+        key-field="Id"
+        data={accounts}
+        columns={columns}>
+</lightning-datatable>
+</template>
+          
+        </div>
+    </lightning-card>
+</template>

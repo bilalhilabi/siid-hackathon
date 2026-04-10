@@ -1,0 +1,17 @@
+.upload-box {
+    background-color: #546e7a;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-image {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 6px;
+}

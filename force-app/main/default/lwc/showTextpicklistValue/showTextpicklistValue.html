@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Select Tickets" icon-name="utility:block_visitor" class="custom-card">
+        <lightning-select message-when-value-missing="Select tickets" name="tickets" label="How many tickets?"
+            data-label="How many tickets?" value={value} options={options} onchange={handleChange} required>
+        </lightning-select>
+
+        <div></div>
+            <span class="custom-icon">
+                <lightning-icon icon-name="utility:block_visitor" alternative-text="Block Visitor" size="small"
+                    class="icon-styled">
+                </lightning-icon>
+            </span>
+
+            <span>
+                <h2 class="slds-card__header-title">Select Tickets multiple</h2>
+            </span>
+              <p>Number of tickets: {label}</p>
+      
+            <lightning-input type="input" label="just text" onchange={handleChangeText}>
+    </lightning-input>
+
+    <div lwc:if={swamy}>
+        <p>{swamy}</p>
+    </div>
+    </lightning-card>
+
+    <lightning-card>
+       
+    <lightning-checkbox-group name="Checkbox Group"
+                              label="Checkbox Group"
+                              options={options}
+                              value={value}
+                              onchange={handleChange}></lightning-checkbox-group>
+    <p>Selected Values are: {selectedValues}</p>
+
+    </lightning-card>
+    
+
+    
+
+  
+
+    <div lwc:if={isOne}>
+        <p> The value is 1</p>   
+    </div>
+    <div lwc:if={isTwo}>
+        <p> The value is 2</p>
+    </div>
+    <div lwc:if={isThree}>
+        <p> The value is 3</p>
+    </div>
+
+</template>

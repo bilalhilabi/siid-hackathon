@@ -1,0 +1,23 @@
+.box{
+    border: 2px solid green;
+   
+
+}
+.container{
+    border: 2px solid yellow;
+ display: flex;
+}
+
+.pqr{
+    border: 2px solid red;
+}
+
+.abc{
+    border: 2px solid yellow;
+    height: 30vh;
+}
+
+.slds-wrap{
+    border: 2px solid green;
+    height: 50vh;
+}

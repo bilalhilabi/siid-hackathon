@@ -1,0 +1,103 @@
+<template>
+    
+        <!--Header-->
+        <div class="header">
+        <div class="slds-grid slds-wrap  nav">
+            <div class="slds-col slds-size_1-of-2 slds-text-align_left" >
+            <p><b>UXchallenge</b></p>
+
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-text-align_right" style="color:gray" >
+                <span class="slds-p-right_medium">Blog</span>
+                <span class="slds-p-right_medium">About</span>
+                <span class="slds-p-right_medium"><img src={logoUrl}  /></span>
+               <span class="slds-p-right_medium"><img src={logoUrl1}  /></span>
+            </div>
+        </div>
+
+        <div class=" sldx-box slds-text-align_center slds-m-top_large slds-p-around_xx-large slds-grid slds-grid_vertical b1"  style={backgroundImageUrl}>
+        <p style="font-size:50px;">Level Up Your Design Skills</p>
+         
+        <p>Practice solving problems with UX design challenges.</p>
+            <p>Expand your portfolio with case studies companies want to see.</p>
+        </div>
+    </div>
+
+
+        <!--main-->
+       
+        
+             <p class="slds-text-align_center p1">
+            <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+            All challenges have products that are made to solve these <b>real world problems.</b>
+            <a href="https://www.salesforce.com" target="_blank" rel="noopener noreferrer" class="slds-text-link">
+                <u>Learn more about UX Challenge</u>
+            </a>
+            <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon></p>
+             
+           
+            <div class="slds-grid slds-wrap main box1" style=" background-color: #F5F9FA;margin-left: -17px; margin-right: -17px;" >
+                
+                <div class="slds-col slds-size_1-of-12" ></div>
+                <div class="slds-col slds-size_10-of-12">
+                    <div class="slds-grid slds-wrap slds-grid_pull-padded">
+               <template for:each={cards} for:item="card">
+                <div key={card.title} class="slds-col slds-p-around_small slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12 ">
+                    <div class="slds-card gradient-card">
+                        <article class="slds-card__body slds-p-horizontal_small slds-p-vertical_medium">
+                            <div>
+                            <header class="slds-media slds-media_center slds-m-bottom_small">
+                                
+                                <lightning-icon icon-name={card.icon} size="medium" class="slds-m-right_small"></lightning-icon>
+                                <h2 class="slds-text-title_bold">{card.category}</h2>
+                            </header>
+                            <h3 class="slds-text-heading_medium slds-m-bottom_x-small">{card.title}</h3>
+                        </div>
+
+                            
+                            <p class="slds-text-body_regular slds-m-bottom_medium  slds-text-align_center slds-p-top_xx-large slds-m-top_xx-large des" >{card.description}</p>
+                            <!--<lightning-button 
+                                label={card.buttonLabel} 
+                                variant="base" 
+                                class="slds-button slds-button_neutral">
+                                </lightning-button>-->
+                                <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-center" style="height: 100px; ">
+                                    <button class="slds-button  slds-p-left_large slds-p-right_large slds-button_brand btn" style="width:100%;">{card.buttonLabel}</button>
+                                </div>                            
+                        </article>
+                    </div>
+                </div>
+            </template>
+        </div>
+        </div>
+       
+
+       <!-- <div class="slds-col slds-size_1-of-12" style="border: 2px solid F5F9FA;"></div>-->
+
+        
+     
+</div>
+<div class="slds-text-align_center slds-grid slds-grid_vertical p2" >
+    <p >More challenges coming soon!</p>
+    </div>
+
+
+        <!--footer-->
+
+        <div class="slds-p-around_large slds-text-align_center slds-grid slds-grid_vertical slds-grid_align-center footer" style="background-color:white;" >
+            <h1 class="slds-text-heading_large slds-m-bottom_small">
+                Here's a cheat sheet to help you get started</h1>
+            
+            <p class="slds-text-body_regular slds-m-bottom_large" >
+                Use this <strong>Jobs To Be Done</strong>-based process to jump into a challenge now.</p>
+            
+            <div class="slds-grid slds-grid_align-center">
+                    <div class=" slds-m-right_small">
+                        <input type="email" placeholder="Your Email" class="slds-input email" />
+                    </div>
+                    <button class="slds-button slds-button_brand  but">GET IT</button>             
+            </div>
+        </div>
+        
+  
+</template>

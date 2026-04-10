@@ -1,0 +1,151 @@
+<template>
+<lightning-card title="Please confirm how your wealth was generated">
+
+
+<!-- Multi Select Picklist -->
+<!-- Multi Select Pills Input -->
+
+<div class="slds-p-around_medium">
+
+    <label class="slds-form-element__label">
+        Select one or more options
+    </label>
+
+   <lightning-combobox
+    placeholder="Select option"
+    options={sourceOptions}
+    value=""
+    onchange={handlePicklistSelect}>
+</lightning-combobox>
+
+    <template if:true={hasSelectedSources}>
+        <div class="slds-m-top_small">
+            <lightning-pill-container
+                items={pillItems}
+                onitemremove={handleRemovePill}>
+            </lightning-pill-container>
+        </div>
+    </template>
+
+</div>
+
+
+
+<!-- Dynamic Accordions -->
+<lightning-accordion allow-multiple-sections-open>
+
+
+<template for:each={accordionData} for:item="section">
+<lightning-accordion-section
+key={section.name}
+name={section.name}
+label={section.label}>
+
+<div class="slds-box">
+
+<div class="slds-grid slds-grid_align-spread slds-m-bottom_x-small">
+
+    <!-- Left Title -->
+    <div class="slds-text-heading_small">
+        {section.label}
+    </div>
+
+    <!-- Right Actions -->
+    <div>
+
+        <!-- Add Another (show only on last row) -->
+
+            <lightning-button
+                label="Add Another"
+                icon-name="utility:add"
+                variant="brand-outline"
+                size="small"
+                data-section={section.name}
+                onclick={handleAddAnother}>
+            </lightning-button>
+
+
+        <!-- Delete Row -->
+        <lightning-button-icon
+            icon-name="utility:delete"
+            alternative-text="Delete"
+            class="slds-m-left_x-small"
+            data-section={section.name}
+           
+            onclick={handleDeleteSection}>
+        </lightning-button-icon>
+
+    </div>
+</div>
+
+
+<!-- Repeated Forms -->
+<template for:each={section.items} for:item="item" for:index="index">
+<div key={item.id} class="slds-box slds-m-bottom_small">
+
+
+
+
+
+    <div slot="label" class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+
+    <span class="slds-text-heading_small">{section.label}{item.displayIndex}</span>
+
+    <!-- <template if:true={.isCompleted}> -->
+        <span class="slds-text-color_success slds-text-title_bold">
+            ● Completed
+        </span>
+    <!-- </template> -->
+
+</div>
+
+
+<template if:true={json}>
+    <template for:each={json} for:item="item" for:index="index">
+        <div key={item.id}>
+            <lightning-card>
+                <template for:each={item.fields} for:item="field" for:index="fieldIndex">
+                    <div key={field.id}>
+
+                        
+                        <lightning-input lwc:if={field.isInput} data-name={field.label}  data-id={field.id} label={field.label} onchange={handleChange}>
+                        </lightning-input>
+
+                        <lightning-input lwc:if={field.isDate} type="date" label={field.label}  data-id={field.id} data-name={field.label} onchange={handleChange}>
+                        </lightning-input>
+
+        
+                    <lightning-input lwc:if={field.isNumber} type="number" label={field.label}  data-id={field.id} data-name={field.label} onchange={handleChange}>
+                    </lightning-input>
+
+                    <lightning-combobox lwc:if={field.isCombobox} label={field.label}
+                        data-name={field.id} options={field.option} placeholder="Select option"  data-id={field.id} onchange={handleChange}>   
+                    </lightning-combobox>
+                    </div>
+
+                </template>
+            </lightning-card>
+
+        </div>
+    </template>
+</template>
+
+
+</div>
+</template>
+
+
+
+</div>
+
+
+</lightning-accordion-section>
+</template>
+
+
+</lightning-accordion>
+
+
+</lightning-card>
+
+</template>

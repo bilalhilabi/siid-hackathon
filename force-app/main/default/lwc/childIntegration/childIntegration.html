@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="User Profile">
+        <div class="slds-p-around_medium">
+            <template if:true={userDetails}>
+                <template for:each={userDetails} for:item="field">
+                    <p key={field.label}><strong>{field.label}:</strong> {field.value}</p>
+                </template>
+            </template>
+            
+            <template if:true={errorMessage}>
+                <p style="color:red;">{errorMessage}</p>
+            </template>
+
+            <!-- ✅ Add a Refresh Token Button -->
+            <lightning-button label="Refresh Token" onclick={handleRefreshToken} variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,23 @@
+<template>
+    <lightning-card>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item  size="12" small-device-size="6" medium-device-size="4" large-device-size="6" padding="around-small">
+                <lightning-input  type="text" label="Enter FirstName" name="firstName" value={firstName} onchange={handleChange}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item  size="12" small-device-size="6" medium-device-size="4" large-device-size="6" padding="around-small">
+                <lightning-input type="text" label="Enter LastName" name="lastName" value={lastName} onchange={handleChange}></lightning-input>
+            </lightning-layout-item>
+           
+            <lightning-layout-item  size="12" small-device-size="6" medium-device-size="4" large-device-size="12" padding="around-small">
+                <lightning-button label="ShowFlow" title="Non-primary action" onclick={ShowFlowhandle} ></lightning-button>
+
+               </lightning-layout-item>
+
+        </lightning-layout>   
+        
+        <lightning-flow flow-api-name="Flow_With_LWC" flow-input-variables={flowVariable} if:true={isShowFlow}  onstatuschange={handleFlowStatusChange}></lightning-flow>
+    </lightning-card>
+
+
+    
+</template>

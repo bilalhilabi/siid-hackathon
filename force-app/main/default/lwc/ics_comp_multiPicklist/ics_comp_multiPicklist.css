@@ -1,0 +1,247 @@
+/**
+***************************************************************************************
+* @Name of the LWC  	: ics_comp_acpicklist.css
+* @Description       	: Component used to display multipicklist values  SBO-UK
+* @Author            	: Ramya Gurram
+* @Created Date      	: 15-10-2023
+***************************************************************************************
+* @Last Modified By 		: Shravani Ganta
+* @Last Modified On 		: 07-06-2024
+* @Modification description :  SFP-30254
+***************************************************************************************
+ */
+.verticalAlign {
+    cursor: pointer;
+    padding: 0px 5px !important;
+}
+
+.slds-dropdown {
+    padding: 0px !important;
+    z-index: 1 !important;
+}
+
+.recordListBox {
+    margin-top: 0px !important;
+    overflow-y: scroll;
+}
+
+.slds-listbox li {
+    padding: .45rem 0.7rem !important;
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+    color: #5C6C80;
+}
+
+.inputBox input {
+    padding-left: 10px;
+}
+
+.eachItem:hover {
+    background-color: #F1F1F1;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    display: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.slds-dropdown_fluid {
+    margin-top: -20px;
+}
+
+.slds-combobox__form-element {
+    position: relative;
+}
+
+.lightningPills {
+    top: 10px;
+    left: 10px;
+    width: 98%;
+}
+
+lightning-pill {
+    --slds-c-pill-radius-border: 25px;
+    --slds-c-pill-color-background: #0062E1;
+    color: #fff;
+    font-size: 10px;
+    padding-right: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    overflow-y: auto;
+    border: 1px solid #5C6C80;
+    border-radius: 6px;
+    min-height: 45px;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    position: absolute;
+    background: transparent;
+       height: 95%;
+    width: 99%;
+}
+
+input[disabled]
+{
+background-color: #fafafa !important;
+}
+
+.form-group label {
+    position: absolute;
+    left: 8px;
+    top: -9px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #1A314D;
+    transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+    line-height: 16px;
+    letter-spacing: 0px;
+     background-color: #ffffff;
+    padding: 0 4px;
+    border-radius: 4px;
+    text-align: left;
+    pointer-events: none;
+}
+
+.form-group input:focus {
+    border-color: #5C6C80;
+    outline: none;
+}
+
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label {
+    top: -9px;
+    font-size: 12px;
+    color: #1A314D;
+    background-color: #ffffff;
+    padding: 0 4px;
+    border-radius: 4px;
+    left: 8px;
+}
+
+::-ms-input-placeholder {
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0px;
+}
+.disableLightningPills{
+    pointer-events: none;
+}
+
+@media (max-width: 48em) {
+    .lightningPills {
+        width: 100px;
+        display: flex;
+    }
+
+    .pill_icon {
+        width: 75% !important;
+    }
+
+    .slds-input__icon {
+        height: 10px;
+        width: 10px;
+    }
+
+    .slds-pill__label {
+        font-size: 4px !important;
+    }
+
+    .slds-pill {
+        font-size: 0.600rem !important;
+    }
+
+    .slds-pill__remove svg {
+        height: 0.3rem !important;
+        width: 0.3rem !important;
+        top: -3px !important;
+        left: -2px !important;
+        fill: white !important;
+    }
+
+    .slds-pill__remove {
+        height: 14px !important;
+        width: 20px !important;
+        margin-left : 4px !important;
+        border: 1px solid white !important;
+    }
+}
+
+@media (min-width: 48em) {
+    .lightningPills {
+        font-size: 0px;
+        padding : 5px 0;
+    }
+}
+
+@media(min-width:425px) and (max-width : 768px) {
+    .form-group label {
+    font-size: 12px;
+    white-space: nowrap;
+    max-width: 155px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+
+    .form-group input {
+        font-size: 12px;
+   height: 93%;
+
+    }
+     .slds-dropdown .slds-listbox .slds-listbox__item{
+            font-size: 12px !important;
+        }
+}
+@media(min-width:320px) and (max-width : 425px) {
+    .form-group label {
+        font-size: 12px;
+        white-space: nowrap;
+        max-width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+
+        .form-group input {
+            font-size: 12px;
+   height: 93%;
+        }
+     .slds-dropdown .slds-listbox .slds-listbox__item{
+            font-size: 12px !important;
+        }
+}
+@media(max-width : 992px){
+    .form-group input{
+        padding: 12px;
+    border: 0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    position: absolute;
+    background: transparent;
+    height: 95%;
+    border-bottom: 1px solid gray;
+    width: 99%;
+    }
+}

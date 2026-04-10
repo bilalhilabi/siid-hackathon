@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Upload PDF to Account">
+        <div class="slds-var-m-around_medium">
+            <lightning-button label="Select PDF File" onclick={openFileSelector}></lightning-button>
+            <input 
+                type="file" 
+                accept=".pdf" 
+                style="display: none;" 
+                onchange={handleFileChange}
+                class="file-input"
+            />
+        </div>
+        <template if:true={uploadSuccess}>
+            <div class="slds-text-color_success slds-var-m-top_small">File uploaded successfully!</div>
+        </template>
+    </lightning-card>
+</template>

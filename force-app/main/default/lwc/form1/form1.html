@@ -1,0 +1,136 @@
+<template>
+    <p><big><strong>Details of Authorised Signatories of the Company</strong></big></p>
+    <div class="slds-box">
+        <p><strong>Personal Authorised Signatory (Yes)</strong></p>
+        <lightning-card title="Personal Authorised Signatory-1">
+            <lightning-accordion allow-multiple-sections-open>
+                <lightning-accordion-section name="personalInfo" label="Form Information">
+                    <div class="slds-grid slds-wrap">
+                        <template for:each={fields} for:item="field">
+                            <div key={field.fieldName} class="slds-col slds-size_6-of-12 slds-p-right_small">
+                                <template if:true={field.isText}>
+                                    <lightning-input
+                                        type="text"
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="dynamic-input"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </template>
+                                
+                                <template if:true={field.isDate}>
+                                    <lightning-input
+                                        type="date"
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="dynamic-input"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </template>
+                                <template if:true={field.isPicklist}>
+                                    <lightning-combobox
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="dynamic-input"
+                                        options={field.picklistValues}
+                                        onchange={handleChange}>
+                                    </lightning-combobox>
+                                </template>
+                                <template if:true={field.isNumber}>
+                                    <lightning-input
+                                        type="number"
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="dynamic-input"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </template>
+                                <template if:true={field.isEmail}>
+                                    <lightning-input
+                                        type="email"
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="dynamic-input"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+               <!-- </lightning-accordion-section>
+                
+                <lightning-accordion-section name="addressInfo" label="Home/Permanent Address">-->
+                    <h3 class="slds-text-heading_small slds-m-bottom_small">Home/Permanent Address</h3>
+                    <template for:each={addressFields} for:item="field">
+                        <lightning-input
+                            key={field.fieldName}
+                            type="text"
+                            label={field.placeholder}
+                            data-id={field.fieldName}
+                            class="dynamic-input slds-m-bottom_small"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </template>
+                </lightning-accordion-section>
+                
+                <lightning-accordion-section name="nomineeInfo" label="SubForm Information">
+                    <div class="slds-grid slds-wrap">
+                        <template for:each={nomineeFields} for:item="field">
+                            <div key={field.fieldName} class="slds-col slds-size_6-of-12 slds-p-right_small">
+                                <template if:true={field.isPercentage}>
+                                    <lightning-input
+                                        type="number"
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="nominee-input"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </template>
+                                <template if:true={field.isCheckbox}>
+                                    <lightning-input
+                                        type="checkbox"
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="nominee-input"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </template>
+                                <template if:true={field.isText}>
+                                    <lightning-input
+                                        type="text"
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="nominee-input"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </template>
+                                <template if:true={field.isDate}>
+                                    <lightning-input
+                                        type="date"
+                                        label={field.fieldLabel}
+                                        data-id={field.fieldName}
+                                        class="dynamic-input"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                </lightning-accordion-section>
+            </lightning-accordion>
+            <lightning-button
+                label="Submit"
+                variant="brand"
+                onclick={handleSubmit}>
+            </lightning-button>
+
+           <!--<lightning-button
+                    label="Update"
+                    variant="neutral"
+                    onclick={handleUpdate}
+                    class="slds-m-top_small"
+                    disabled={isSubmitDisabled}>
+                </lightning-button>--> 
+        </lightning-card>
+    </div>
+</template>

@@ -1,0 +1,72 @@
+<template>
+   <!-- <lightning-card title="Custom Validation Input"> -->
+      <!-- <template for:each={userInfo} for:item=user>
+         <div key={user.id} class="slds-p-around_small">
+
+
+            <template lwc:if={user.isText}>
+               <label>{user.label}</label>
+               <input class="input slds-m-horizontal_medium" data-id={user.id} data-type="input" type="input"
+                  onblur={handleBlur} />
+               <template lwc:if={firstName}>
+                  <p>Please enter valid data</p>
+               </template>
+            </template>
+
+            <template lwc:if={user.isComboBox}>
+               <label>{user.label}</label>
+               <lightning-combobox class="comboboxList" id={user.id} data-type="combobox" options={user.options}
+                  value={user.defaultValue} onblur={handleBlur}>
+               </lightning-combobox>
+               <template lwc:if={company}>
+                  <p>Please select value</p>
+               </template>
+            </template>
+
+            <template lwc:if={user.isCheckBox}>
+               <input type="checkbox" id={user.id} data-type="checkbox" onblur={handleBlur} />
+               <label lwc:if={user.isCheckBox} class="slds-checkbox__label" for={user.id}>
+                  <span class="slds-checkbox_faux slds-p-left_small"></span>
+                  <span class="slds-form-element__label">{user.label}</span>
+               </label>
+               <template lwc:if={isStudent}>
+                  <p>Please check the option</p>
+               </template>
+            </template>
+
+
+            <template lwc:if={user.isMultiPicklist}>
+               <label>{user.label}</label>
+               <template for:each={user.options} for:item=opt>
+                  <lightning-input key={opt.value} type="checkbox" label={opt.label} value={opt.value} data-type="multipicklist"
+                     onblur={handleBlur}>
+                  </lightning-input>
+               </template>
+               <template lwc:if={skills}>
+                  <p class="slds-text-color_error">Please select at least one skill</p>
+               </template>
+            </template>
+
+
+         </div>
+      </template> -->
+      <!-- <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleClick}
+         class="slds-m-left_x-small"></lightning-button> -->
+      <!-- <lightning-button variant="brand" label="Save2" title="Primary action" onclick={handleClick1}></lightning-button> -->
+         <template for:each={json} for:item="item" for:index="index" >
+            <div key={item.id}>
+               <lightning-card title={item.page}>
+                <h2>{item.page}</h2>
+                <template for:each={item.fields} for:item="field" for:index="index">
+                  <div key={field.id}>
+                    <lightning-input lwc:if={field.isInput} label={field.label} ></lightning-input>
+                    </div>
+
+                </template>
+               </lightning-card>
+            </div>
+
+         </template>
+
+   <!-- </lightning-card> -->
+</template>

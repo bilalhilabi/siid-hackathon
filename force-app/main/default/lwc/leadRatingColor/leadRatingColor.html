@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Lead Records" icon-name="standard:lead">
+        <template if:true={leads}>
+            <lightning-datatable
+                key-field="Id"
+                data={leads}
+                columns={columns}
+                hide-checkbox-column="true"
+                show-row-number-column="true">
+            </lightning-datatable>
+        </template>
+
+        <template if:true={error}>
+            <p class="slds-text-color_error">Error fetching leads: {error.body.message}</p>
+        </template>
+    </lightning-card>
+</template>

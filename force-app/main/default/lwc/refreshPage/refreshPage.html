@@ -1,0 +1,49 @@
+<template>
+    <div class="slds-progress">
+        <ol class="slds-progress__list">
+        <li class="slds-progress__item slds-is-completed">
+        <div class="slds-progress__marker slds-progress__marker_icon" tabindex="0">
+        <svg class="slds-icon slds-icon_xx-small" aria-hidden="false">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+        </svg>
+        <span class="slds-assistive-text">Step 1 - Completed</span>
+        </div>
+        </li>
+        <li class="slds-progress__item slds-is-completed">
+        <div class="slds-progress__marker slds-progress__marker_icon" tabindex="0">
+        <svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+        </svg>
+        <span class="slds-assistive-text">Step 2 - Completed</span>
+        </div>
+        </li>
+        <li class="slds-progress__item slds-has-error">
+        <div class="slds-progress__marker slds-progress__marker_icon" tabindex="0">
+        <svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+        </svg>
+        <span class="slds-assistive-text">Step 3 - Error</span>
+        </div>
+        </li>
+        <li class="slds-progress__item">
+        <div class="slds-progress__marker" tabindex="0">
+        <span class="slds-assistive-text">Step 4 </span>
+        </div>
+        </li>
+        <li class="slds-progress__item">
+        <div class="slds-progress__marker" tabindex="0">
+        <span class="slds-assistive-text">Step 5 </span>
+        </div>
+        </li>
+        </ol>
+        <div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="progressbar">
+        <span class="slds-progress-bar__value" style="width:50%">
+        <span class="slds-assistive-text">Progress: 50%</span>
+        </span>
+        </div>
+        </div>
+</template>
+
+<!-- <template>
+    <p>Rating - {ratingValue}</p>
+</template> -->

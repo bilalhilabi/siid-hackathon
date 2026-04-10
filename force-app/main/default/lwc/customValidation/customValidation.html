@@ -1,0 +1,13 @@
+<template>
+<lightning-card title="Custom Validation Lightning-Input">
+    <template for:each={userInfo} for:item="user" for:index="index">
+         <div key={user.id}>
+            <template lwc:if={user.isText}>
+            <lightning-input key={user.id} data-name='abc' label={user.label} onblur={handleBlur} ></lightning-input> 
+            </template>  
+         </div>
+    </template>
+   <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button> 
+
+</lightning-card>
+</template>

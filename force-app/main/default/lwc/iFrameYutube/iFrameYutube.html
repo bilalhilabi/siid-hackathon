@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="IFrame">
+        <!-- <div class="slds-p-around_medium"> -->
+            
+            <!-- <lightning-icon icon-name="utility:chevronleft" alternative-text="chevronleft" title="chevronleft"></lightning-icon>
+
+            <lightning-layout multiple-rows horizontal-align="center">
+                <template for:each={cards} for:item="car">
+                <lightning-layout-item padding="around-small" key={car.id}>
+                    <iframe  width="360" height="200" src="https://www.youtube.com/embed/XZwBNDGuWGU?si=gTKojlLmRb3HRcod" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </lightning-layout-item>
+                </template>
+            </lightning-layout>
+
+           <lightning-icon icon-name="utility:chevronright" alternative-text="chevronright" title="chevronright"></lightning-icon> -->
+
+           <lightning-layout multiple-rows horizontal-align="center" vertical-align="center">
+            <lightning-layout-item padding="around-small" >
+            <lightning-icon icon-name="utility:chevronleft" alternative-text="chevronleft" title="chevronleft" onclick={handleBack}></lightning-icon>
+
+            </lightning-layout-item>
+
+            <template for:each={threeArray} for:item="car">
+                <lightning-layout-item padding="around-small" key={car.id}>
+                    <iframe  width="260" height="200" src={car.link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </lightning-layout-item>
+                </template>
+
+            <lightning-layout-item padding="around-small" >
+           <lightning-icon icon-name="utility:chevronright" alternative-text="chevronright" title="chevronright" onclick={handleNext}></lightning-icon>
+
+            </lightning-layout-item>
+           </lightning-layout>
+           
+        <!-- </div> -->
+    </lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Account Datatable with Filters">
+        <div class="slds-p-around_medium">
+            <lightning-combobox label="Record Type" options={recordTypes} onchange={handleRecordTypeChange}></lightning-combobox>
+            <lightning-combobox label="Picklist Field" options={picklistFields} onchange={handlePicklistFieldChange}></lightning-combobox>
+            <lightning-combobox label="Picklist Value" options={picklistValues} onchange={handlePicklistValueChange}></lightning-combobox>
+        </div>
+        <lightning-datatable key-field="Id" data={filteredAccounts} columns={columns}></lightning-datatable>
+
+        <div class="slds-m-top_medium slds-align_absolute-center">
+            <lightning-button label="Reset" onclick={handleReset} variant="neutral"></lightning-button>
+        </div>
+        <div class="slds-m-top_medium">
+            <lightning-datatable key-field="Id" data={accounts} columns={COLUMNS} hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card> 
+</template>

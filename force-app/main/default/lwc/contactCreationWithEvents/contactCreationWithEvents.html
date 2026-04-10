@@ -1,0 +1,47 @@
+<template>
+    <!-- Contact Creation Card -->
+    <lightning-card title="Create Contact" icon-name="standard:contact">
+        <div class="form-section">
+            <lightning-record-edit-form
+                object-api-name="Contact"
+                onsuccess={handleSuccess}
+                onsubmit={handleSubmit}
+                onerror={handleError}
+            >
+                <div class="form-grid">
+                    <lightning-input-field field-name="FirstName"></lightning-input-field>
+                    <lightning-input-field field-name="LastName" required></lightning-input-field>
+                    <lightning-input-field field-name="Email"></lightning-input-field>
+                    <lightning-input-field field-name="Phone"></lightning-input-field>
+                </div>
+
+                <div class="button-area">
+                    <lightning-button
+                        type="submit"
+                        label="Create Contact"
+                        variant="brand"
+                    ></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <div class="spinner">
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <!-- Related Events Card -->
+    <template if:true={events.data}>
+        <lightning-card title="Related Events" icon-name="standard:event">
+            <lightning-datatable
+                data={events.data}
+                columns={eventColumns}
+                key-field="Id"
+                hide-checkbox-column
+            ></lightning-datatable>
+        </lightning-card>
+    </template>
+</template>

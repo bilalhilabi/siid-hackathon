@@ -1,0 +1,32 @@
+<template>
+       <lightning-card  >
+        <p slot="title" class="slds-text-heading_large"> Welcome back, John</p>
+        <p class="slds-p-left_medium">Your Application journey is Progressing well. Here summury of your current Status</p>
+            <div slot="actions">
+                <lightning-button variant="brand" label="Raise a Query" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+            </div>
+    
+       <lightning-layout horizontal-align="space" >
+            <template for:each={statuses} for:item="status">
+                <lightning-layout-item  key={status.label} class="status-card">
+                <div class="custom-box slds-box  slds-text-align_center"
+                        data-label={status.label} onclick={handleCardClick}>
+                    <div class={status.className}>
+                        <lightning-icon icon-name={status.icon} size="small" class="status-icon"></lightning-icon>
+                        <p class="label">{status.label}</p>
+                        <p class="count">{status.count}</p>
+                    </div>
+                </div>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+        <template lwc:if={selectedStatus}>
+                 <p> Selected card is {selectedStatus}</p>
+        </template>
+
+       
+  
+
+           
+        </lightning-card>
+</template>

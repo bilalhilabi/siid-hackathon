@@ -1,0 +1,138 @@
+<template>
+    <div class="slds-box">
+    <h1><big>Details of Authorised Signatories of the Company</big></h1>
+    <div class="slds-box">
+        <p>Personal Authorised Signatory - 1</p>
+        <div class="slds-grid slds-wrap ">
+            <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                <lightning-combobox
+                label="Title"
+                name="title"
+                placeholder="Select Progress"
+                 value={valuetitle}
+                options={optionstitle}
+                onchange={handleChange}
+                ></lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                <lightning-input  name="sname"
+                                  label="Family Name (Surname)" 
+                                  placeholder="Placeholder"
+                                  onchange={handleChange}>
+                                </lightning-input>
+            </div>
+    </div>
+         
+
+            <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                <lightning-input name="fname" label="First Name" placeholder="Placeholder"  onchange={handleChange}></lightning-input>
+
+            </div>
+           </div>
+
+
+      
+            <div class="slds-col slds-size_6-of-12 slds-p-right_medium" >
+                <label class="slds-form-element__label">Middle Name</label>
+                <lightning-radio-group 
+                          name="radio"
+                          options={options}
+                          value={radio}
+                          onchange={handleChange}
+                          type="radio"></lightning-radio-group>
+            </div>
+            
+
+            <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                <label class="slds-form-element__label">Does the individual have any Former Name/Maiden Name previously used ?</label>
+                <lightning-radio-group 
+                          name="radio1"
+                          options={options}
+                          value={radio1}
+                          onchange={handleChange}
+                          type="radio"></lightning-radio-group>
+            </div>
+
+
+            <div class="slds-col slds-size_12-of-12 slds-p-right_medium">
+                <label class="slds-form-element__label">Is the individual Known by a different First, Middle or Family Name as provided above ?</label>
+                <lightning-radio-group 
+                          name="radio2"
+                          options={options}
+                          value={radio2}
+                          onchange={handleChange}
+                          type="radio"></lightning-radio-group>
+            </div>
+
+
+            <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                <lightning-input name= email type="email" label="Email Address" onchange={handleChange}></lightning-input>
+            </div>
+
+
+           <div class="slds-col slds-size_12-of-12 slds-p-right_medium">
+                <fieldset class="slds-form-element slds-m-top_medium">
+                    <legend class="slds-form-element__legend slds-form-element__label">Home/Permanent Address</legend>
+                    <lightning-input name="add1" class="slds-m-bottom_x-small slds-p-right_medium" placeholder="Address line 1" onchange={handleChange}></lightning-input>
+                    <lightning-input name="add2" class="slds-m-bottom_x-small slds-p-right_medium" placeholder="Address line 2" onchange={handleChange}></lightning-input>
+                    <lightning-input  name="add3" class="slds-m-bottom_x-small slds-p-right_medium" placeholder="Address line 3" onchange={handleChange}></lightning-input>
+                    <lightning-input name="add4" class="slds-m-bottom_x-small slds-p-right_medium" placeholder="Address line 4" onchange={handleChange}></lightning-input>
+
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                            <lightning-input  name="postcode" type=" Text" label="Postcode" placeholder="Placeholder" onchange={handleChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                            <lightning-input name="country" type="text" label="Country" placeholder="Placeholder" onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                            <lightning-input  name="dbirth" type="Date" label="Date of Birth" placeholder="Placeholder" onchange={handleChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                            <lightning-input name="pbirth" type="text" label="Place of Birth" placeholder="Placeholder" onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+                        <lightning-input  name="primaryCode" type="Text" label="Primary code of Nationality" placeholder="Placeholder" onchange={handleChange}></lightning-input>
+                    </div>
+             </fieldset>
+           </div>
+
+           <div class="slds-col slds-size_12-of-12 slds-p-right_medium">
+            <label class="slds-form-element__label">Does the individual have dual Nationality ?</label>
+            <lightning-radio-group 
+                      name="radio3"
+                      options={options}
+                      value={radio3}
+                      onchange={handleChange}
+                      type="radio"></lightning-radio-group>
+        </div>
+
+
+        <div class="slds-col slds-size_12-of-12 slds-p-right_medium">
+            <label class="slds-form-element__label">Is the individual considered to be a politically exposed person ?</label>
+            <lightning-radio-group 
+                      name="radio4"
+                      options={options}
+                      value={radio4}
+                      type="radio"></lightning-radio-group>
+        </div>
+
+  <!--checkbox-->
+        <div class="slds-col slds-size_12-of-12 slds-p-right_medium">
+            <lightning-input name="input1" type="checkbox" label="Please click here if you are acting in the capacity of a regulated TCSP Employee" onchange={handleChange} ></lightning-input>
+        </div>
+
+
+<div class="slds-col slds-size_6-of-12 slds-p-right_medium">
+    <lightning-input name="ldate" type="Date" label="Date" placeholder="Placeholder" onchange={handleChange}></lightning-input>
+</div>
+
+        
+      </div>
+    </div>
+</template>

@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Bank Customer Form">
+        <div class="slds-p-around_medium">
+            <lightning-input label="First Name" data-name="First Name" name="Name" onchange={handleChange}></lightning-input>
+            <lightning-input label="Last Name" data-name="Last Name" name="Last_Name__c" onchange={handleChange}></lightning-input>
+            <lightning-input label="Mobile Number" data-name="Mobile Number" type="number" name="	Mobile_Number__c" onchange={handleChange}></lightning-input>
+            <lightning-input label="Address" data-name="Address" name="Address__c" onchange={handleChange}></lightning-input>
+            <lightning-input label="Email" data-name="Email" type="email" name="Email__c" onchange={handleChange}></lightning-input>
+            <lightning-input label="Join Date" data-name="Join Date" type="date" name="	Joining_Date__c" onchange={handleChange}></lightning-input>
+            
+            <lightning-combobox
+                name="Account_Type__c"
+                data-name="Acount Type"
+                label="Type of Account"
+                value={accountType}
+                placeholder="Select Account Type"
+                options={accountOptions}
+                onchange={handleChange}>
+            </lightning-combobox>
+
+            <lightning-button label="Save Customer" variant="brand" class="slds-m-top_medium" onclick={handleSave}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

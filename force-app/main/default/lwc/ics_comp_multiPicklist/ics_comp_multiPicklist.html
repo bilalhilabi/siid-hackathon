@@ -1,0 +1,75 @@
+<!--
+***************************************************************************************
+* @Name of the LWC  	: ics_comp_acpicklist.html
+* @Description       	: Component used to display multipicklist values  SBO-UK
+* @Author            	: Ramya Gurram
+* @Created Date      	: 15-10-2023
+***************************************************************************************
+* @Last Modified By 		: Shravani Ganta
+* @Last Modified On 		: 07-06-2024
+* @Modification description :  SFP-30254
+***************************************************************************************
+-->
+<template>
+    <div class="slds-combobox_container">
+        <div class="" aria-expanded="true" aria-haspopup="listbox" role="combobox" onmouseleave={handleMouseOut}>
+            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                <div class="form-group" onblur={handleBlur} onclick={showOptions} onkeyup={filterOptions}>
+                    <input disabled={disabled} placeholder="" class="inputBox" value={searchString} onblur={handleBlur}
+                        onclick={showOptions} onkeyup={filterOptions} id={placeholder}></input>
+                    <label for={placeholder}>{placeholder} </label>
+                    <template lwc:if={disabled}>
+                          <div class="lightningPills disableLightningPills"  onclick={showOptions}>
+                        <template for:each={optionData} for:item="option">
+                            <template lwc:if={option.selected}>
+                                <lightning-pill class="pill_icon" label={option.label} key={option.value}
+                                    name={option.value} onremove={closePill}>
+                                </lightning-pill>
+                            </template>
+                        </template>
+                    </div>
+                    </template>
+                    <template lwc:else>
+                         <div class="lightningPills"  onclick={showOptions}>
+                        <template for:each={optionData} for:item="option">
+                            <template lwc:if={option.selected}>
+                                <lightning-pill class="pill_icon" label={option.label} key={option.value}
+                                    name={option.value} onremove={closePill}>
+                                </lightning-pill>
+                            </template>
+                        </template>
+                    </div>
+                    </template>
+                </div>
+                <lightning-icon class="slds-input__icon" icon-name="utility:down" size="x-small"
+                    alternative-text="downicon"></lightning-icon>
+            </div>
+            <template lwc:if={showDropdown}>
+                <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+                    <ul class="slds-listbox slds-listbox_vertical recordListBox" role="presentation">
+                        <template lwc:if={noResultMessage}>
+                            <li class="slds-listbox__item">
+                                <span
+                                    class="slds-media slds-listbox__option_entity verticalAlign slds-truncate">{noResultMessage}</span>
+                            </li>
+                        </template>
+                        <template lwc:else>
+                            <template for:each={optionData} for:item="option">
+                                <li key={option.value} data-id={option.value} onmousedown={selectItem}
+                                    class="slds-listbox__item eachItem" lwc:if={option.isVisible}>
+
+                                    <span
+                                        class="slds-media slds-listbox__option_entity verticalAlign slds-truncate">{option.label}</span>
+                                    <template lwc:if={option.selected}>
+                                        <lightning-icon icon-name="utility:check" size="x-small"
+                                            alternative-text="icon"></lightning-icon>
+                                    </template>
+                                </li>
+                            </template>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

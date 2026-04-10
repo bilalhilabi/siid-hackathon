@@ -1,0 +1,26 @@
+lightning-card{
+  /* color: aqua;   */
+      --slds-c-icon-color-foreground-default: rgb(50, 50, 204);
+      
+}
+
+:host {
+  --slds-c-icon-color-background: #fff;
+}
+
+.custom-card lightning-icon {
+  border: 2px solid red;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: white;
+}
+
+/* .custom-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(181, 30, 141);
+  border-radius: 50%;
+  padding: 4px;
+  background-color: white;
+} */

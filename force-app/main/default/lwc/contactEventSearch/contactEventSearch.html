@@ -1,0 +1,61 @@
+<template>
+    <lightning-card title="Edit Contact">
+        <div class="slds-p-around_medium">
+            <!-- Contact ID Input Field -->
+            <lightning-input
+                label="Enter Contact ID"
+                value={contactId}
+                onchange={handleContactIdChange}
+                placeholder="Enter Contact ID"
+                class="slds-m-bottom_medium">
+            </lightning-input>
+ 
+            <!-- Error message for invalid Contact ID -->
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error">{errorMessage}</div>
+            </template>
+ 
+            <!-- Record Edit Form if valid Contact ID -->
+            <template if:true={recordId}>
+                <lightning-record-edit-form
+                    record-id={recordId}
+                    object-api-name="Contact"
+                    onsuccess={handleSuccess}>
+ 
+                    <!-- Contact fields to be edited -->
+                    <lightning-input-field field-name="FirstName"></lightning-input-field>
+                    <lightning-input-field field-name="LastName"></lightning-input-field>
+                    <lightning-input-field field-name="Email"></lightning-input-field>
+ 
+<!--<div class="slds-p-top_medium">
+                        <lightning-button variant="brand" type="submit" label="Save" class="slds-m-top_medium"></lightning-button>
+                    </div>-->
+                </lightning-record-edit-form>
+            </template>
+        </div>
+    </lightning-card>
+ 
+    <!-- Related Contact Events Section -->
+    <template if:true={contactId}>
+        <lightning-card title="Related Contact Events">
+            <template if:true={events}>
+                <template for:each={events} for:item="event">
+                    <lightning-card key={event.Id} title={event.Subject__c}>
+                        <div class="slds-p-around_medium">
+                            <p><strong>Start Date: </strong>{event.StartDateTime__c}</p>
+                            <p><strong>End Date: </strong>{event.EndDateTime__c}</p>
+                           
+                            <!-- <template if:true={event.Meeting_Link__c}>
+                                <p><strong>Meeting Link: </strong><a href={event.Meeting_Link__c} target="_blank">Join Meeting</a></p>
+                            </template> -->
+                        </div>
+                    </lightning-card>
+                </template>
+            </template>
+ 
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error">{errorMessage}</div>
+            </template>
+        </lightning-card>
+    </template>
+</template>

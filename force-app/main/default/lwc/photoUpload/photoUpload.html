@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Upload Student ID">
+        <div class="slds-p-around_medium">
+            <label class="slds-form-element__label" for="fileUploader">
+                <abbr class="slds-required" title="required">*</abbr>Upload Student ID
+            </label>
+
+             <div class="upload-box slds-m-vertical_medium">
+                <template if:true={uploadedImageUrl}>
+                    <img src={uploadedImageUrl} alt="Uploaded ID" class="preview-image" />
+                </template>
+                <template if:false={uploadedImageUrl}>
+                    <lightning-icon icon-name="standard:photo" size="large"></lightning-icon>
+                </template>
+            </div>
+
+            <lightning-button
+                label="Upload ID Front"
+                variant="brand"
+                onclick={handleUploadClick}
+            ></lightning-button>
+
+            <input
+                type="file"
+                accept="image/jpeg, image/jpg, image/png"
+                onchange={handleFileChange}
+                style="display: none"
+                class="file-input"
+            />
+        </div>
+    </lightning-card>
+</template>

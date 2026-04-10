@@ -1,0 +1,26 @@
+<!--Sending form information to backend-->
+<template>
+    <template if:true={json}>
+    <template for:each={json} for:item="item" for:index="index">
+        <div key={item.id}>
+            <lightning-card title={item.page}>
+                <template for:each={item.fields} for:item="field" for:index="fieldIndex">
+                    <div key={field.id}>
+                        <lightning-input lwc:if={field.isInput} data-name={field.label} label={field.label} onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+
+                </template>
+                <lightning-button label="Submit" onclick={handleSubmit} variant="brand"></lightning-button>
+            </lightning-card>
+
+        </div>
+    </template>
+</template>
+
+    <template if:false={json}>
+    <lightning-card title="Form Preview">
+        <p class="slds-p-around_medium">Form will load after site is published.</p>
+    </lightning-card>
+</template>
+</template>
